@@ -1,3 +1,13 @@
+/*
+ * @Author: SunBOY
+ * @Date: 2023-07-25 22:56:54
+ * @LastEditors: SunBOY
+ * @LastEditTime: 2023-07-27 23:08:58
+ * @FilePath: \dataStructure\Array.js
+ * @Description: 
+ * Copyright 2023 OBKoro1, All Rights Reserved. 
+ * 2023-07-25 22:56:54
+ */
 //数字类型乱序数组
 
 // const arr = [
@@ -48,4 +58,78 @@ function remove(arr, targe) {
     }
     return arr
 }
-console.log(remove(arr, 4))
+// console.log(remove(arr, 4))
+
+
+/**
+ * 矩阵  5
+ * [
+    [[], [], [], [], []],
+    [[], [], [], [], []],
+    [[], [], [], [], []],
+    [[], [], [], [], []],
+    [[], [], [], [], []]
+]
+* @param {number} n 行列
+ */
+function matrix(n) {
+    let arr = Array.from({ length: n }, () => new Array(n).fill(0)); //初始化数组
+    let x = 0,
+        y = 0; //每一圈的起点
+    let i = 0,
+        j = 0;
+    let item = 1; //填充的数值
+    let number = parseInt(n / 2); //循环次数
+    let length = n;
+    while (number--) {
+        length = length - 1;
+        i = x;
+        j = y;
+        for (i; i < length; i++) {
+            arr[j][i] = item++;
+        }
+        for (j; j < length; j++) {
+            arr[j][i] = item++;
+        }
+        x++;
+        y++;
+        for (i; i >= x; i--) {
+            arr[j][i] = item++;
+        }
+        for (j; j >= y; j--) {
+            arr[j][i] = item++;
+        }
+    }
+    // 最后一个点
+    if (n % 2 === 1) {
+        arr[x][y] = item;
+    }
+    return arr;
+}
+console.table(matrix(30))
+
+
+/**查询最小序列
+ **/
+function b(targe, nums) {
+    let l = 0,
+        r = 0;
+    let item = 0;
+    let a = Infinity;
+    while (r < nums.length) {
+        item += nums[r];
+        if (item === targe) {
+            a = Math.min(a, r - l + 1);
+            l++;
+            r = l;
+            item = 0;
+        } else if (item > targe) {
+            l++;
+            r = l;
+            item = 0;
+        } else r++;
+    }
+    return a;
+}
+console.log(b(5, [1, 2, 2, 4, 1, 4]));
+
