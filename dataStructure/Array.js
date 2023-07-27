@@ -2,7 +2,7 @@
  * @Author: SunBOY
  * @Date: 2023-07-25 22:56:54
  * @LastEditors: SunBOY
- * @LastEditTime: 2023-07-27 23:08:58
+ * @LastEditTime: 2023-07-27 23:36:58
  * @FilePath: \dataStructure\Array.js
  * @Description: 
  * Copyright 2023 OBKoro1, All Rights Reserved. 
@@ -106,7 +106,7 @@ function matrix(n) {
     }
     return arr;
 }
-console.table(matrix(30))
+// console.table(matrix(30))
 
 
 /**查询最小序列
@@ -131,5 +131,31 @@ function b(targe, nums) {
     }
     return a;
 }
-console.log(b(5, [1, 2, 2, 4, 1, 4]));
+// console.log(b(5, [1, 2, 2, 4, 1, 4]));
 
+/**
+ * 给一个递增的数组
+ * 放回平方后递增的数组
+ * @param {number[]} nums 
+ */
+function c(nums) {
+    let arr = new Array(nums.length)
+    let index = nums.length - 1
+    let left = 0
+    let right = nums.length - 1
+    while (!(index < 0)) {
+        if (nums[left] * nums[left] > nums[right] * nums[right]) {
+            arr[index] = nums[left] * nums[left]
+
+            left++
+            index--
+        }
+        else {
+            arr[index] = nums[right] * nums[right]
+            right--
+            index--
+        }
+    }
+    return arr
+}
+console(c([-7, -3, 2, 3, 11]))

@@ -123,3 +123,26 @@ function b(targe, nums) {
     return a;
 }
 ```
+- 给一个递增的数组 输出一个平方后递增的数组
+```javascript
+function c(nums) {
+    let arr = new Array(nums.length)
+    let index = nums.length - 1
+    let left = 0
+    let right = nums.length - 1
+    while (!(index < 0)) {
+        if (nums[left] * nums[left] > nums[right] * nums[right]) {
+            arr[index] = nums[left] * nums[left]
+
+            left++
+            index--
+        }
+        else {
+            arr[index] = nums[right] * nums[right]
+            right--
+            index--
+        }
+    }
+    return arr
+}
+```
