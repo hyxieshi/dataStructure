@@ -2,7 +2,7 @@
  * @Author: SunBOY
  * @Date: 2023-07-25 22:56:54
  * @LastEditors: SunBOY
- * @LastEditTime: 2023-07-27 23:36:58
+ * @LastEditTime: 2023-07-27 23:40:23
  * @FilePath: \dataStructure\Array.js
  * @Description: 
  * Copyright 2023 OBKoro1, All Rights Reserved. 
@@ -158,4 +158,4 @@ function c(nums) {
     }
     return arr
 }
-console(c([-7, -3, 2, 3, 11]))
+console.log(c([-7, -3, 2, 3, 11]))
