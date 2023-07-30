@@ -146,7 +146,6 @@ function c(nums) {
     while (!(index < 0)) {
         if (nums[left] * nums[left] > nums[right] * nums[right]) {
             arr[index] = nums[left] * nums[left]
-
             left++
             index--
         }
@@ -159,3 +158,4 @@ function c(nums) {
     return arr
 }
 console.log(c([-7, -3, 2, 3, 11]))
+
